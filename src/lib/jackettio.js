@@ -699,7 +699,8 @@ export async function getStreams(userConfig, type, stremioId, publicUrl){
     return {
       name: `[${debridInstance.shortName}${statusIcon}] ${userConfig.enableMediaFlow ? '🕵🏼‍♂️ ' : ''}${config.addonName} ${quality}`,
       title: rows.join("\n"),
-      url: torrent.disabled ? '#' : `${publicUrl}/${btoa(JSON.stringify(userConfig))}/download/${type}/${stremioId}/${torrent.id}/${file.name || torrent.name}`
+      url: torrent.disabled ? '#' : `${publicUrl}/${btoa(JSON.stringify(userConfig))}/download/${type}/${stremioId}/${torrent.id}/${file.name || torrent.name}`,
+      infoHash: torrent.infos.infoHash
     };
   });
 
